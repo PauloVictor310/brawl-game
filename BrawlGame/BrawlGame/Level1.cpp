@@ -46,7 +46,7 @@ void Level1::Init()
     // plataformas
     // ----------------------
 
-    Platform * plat;
+    //Platform * plat;
     float posX, posY;
     uint  platType;
     Color white { 1,1,1,1 };
@@ -61,8 +61,8 @@ void Level1::Init()
         {
             // lê linha com informações da plataforma
             fin >> posY; fin >> platType;
-            plat = new Platform(posX, posY, platType, white);
-            scene->Add(plat, STATIC);
+            //plat = new Platform(posX, posY, platType, white);
+            //scene->Add(plat, STATIC);
         }
         else
         {
@@ -79,9 +79,9 @@ void Level1::Init()
     // ----------------------
 
     // inicia com música
-    GravityGuy::audio->Frequency(MUSIC, 0.94f);
-    GravityGuy::audio->Frequency(TRANSITION, 1.0f);
-    GravityGuy::audio->Play(MUSIC);
+    //GravityGuy::audio->Frequency(MUSIC, 0.94f);
+    //GravityGuy::audio->Frequency(TRANSITION, 1.0f);
+    //GravityGuy::audio->Play(MUSIC);
 }
 
 // ------------------------------------------------------------------------------

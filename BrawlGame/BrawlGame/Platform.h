@@ -26,26 +26,14 @@ enum PLATTYPES { SMALL, MEDIUM, LARGE, FINISH };
 
 class Platform : public Object
 {
-private:
-    Sprite * platform = nullptr;            // sprite da plataforma
-    Color color;                            // cor da plataforma
-
 public:
-    Platform(float posX, float posY, 
-             uint platType, 
-             Color tint);                   // construtor    
+    Platform(float x1, float x2, float y1, float y2);                   // construtor    
     ~Platform();                            // destrutor
 
     void Update();                          // atualização do objeto
     void Draw();                            // desenho do objeto
+    void OnCollision(Object* obj);
 }; 
 
 // ---------------------------------------------------------------------------------
-// Função Membro Inline
-
-inline void Platform::Draw()
-{ platform->Draw(x, y, z, 1.0f, 0.0f, color); }
-
-// ---------------------------------------------------------------------------------
-
 #endif

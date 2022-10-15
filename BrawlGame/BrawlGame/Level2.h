@@ -19,13 +19,22 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Background.h"
+#include "Platform.h"
 
 // ------------------------------------------------------------------------------
 
 class Level2 : public Game
 {
 private:
-    Background* backg = nullptr;   // pano de fundo animado
+    Sprite* backg = nullptr;   // pano de fundo animado
+    Platform* platform_1 = nullptr;
+    Platform* platform_2 = nullptr;
+    Platform* platform_3 = nullptr;
+    Platform* platform_4 = nullptr;
+    Platform* platform_5 = nullptr;
+    Platform* platform_6 = nullptr;
+    Platform* platform_7 = nullptr;
+    Platform* platform_8 = nullptr;
 
 public:
     static Scene* scene;           // cena do nível

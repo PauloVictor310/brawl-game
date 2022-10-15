@@ -13,37 +13,34 @@
 
 // ---------------------------------------------------------------------------------
 
-Platform::Platform(float posX, float posY, uint platType, Color tint) : color(tint)
+Platform::Platform(float x1, float x2, float y1, float y2)
 {
-    switch (platType)
-    {
-    case SMALL:  platform = new Sprite("Resources/SmallGray.png"); type = SMALL; break;
-    case MEDIUM: platform = new Sprite("Resources/MediumGray.png"); type = MEDIUM; break;
-    case LARGE:  platform = new Sprite("Resources/LongGray.png"); type = LARGE; break;
-    case FINISH: platform = new Sprite("Resources/Finish.png"); type = FINISH; break;
-    }
-    
-    BBox(new Rect(-platform->Width()/2.0f, 
-                  -platform->Height()/2.0f, 
-                   platform->Width()/2.0f, 
-                   platform->Height()/2.0f));
-
-    MoveTo(posX, posY, Layer::MIDDLE);
+    // bbox das plataformas
+    BBox(new Rect(x1, x2, y1, y2));
 }
 
 // ---------------------------------------------------------------------------------
 
 Platform::~Platform()
 {
-    delete platform;
+
 }
 
 // -------------------------------------------------------------------------------
 
 void Platform::Update()
 {
-    // move plataforma apenas no eixo x
-    Translate(-200.0f * gameTime, 0);
+
+}
+
+void Platform::Draw()
+{
+
+}
+
+void Platform::OnCollision(Object* obj)
+{
+
 }
 
 // -------------------------------------------------------------------------------
