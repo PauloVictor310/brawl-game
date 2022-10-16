@@ -10,7 +10,7 @@
 **********************************************************************************/
 
 #include "Engine.h"
-#include "GravityGuy.h"
+#include "DimensionFighter.h"
 #include "Home.h"
 #include "Level1.h"
 
@@ -21,7 +21,7 @@ void Home::Init()
     backg = new Sprite("Resources/new/init.png");
     //tileset = new TileSet("Resources/PressEnter.png", 72, 48, 1, 5);
     //anim = new Animation(tileset, 0.180f, true);
-    //GravityGuy::audio->Play(MENU, true);
+    //DimensionFighter::audio->Play(MENU, true);
 }
 
 // ------------------------------------------------------------------------------
@@ -35,8 +35,8 @@ void Home::Update()
     // se a tecla ENTER for pressionada
     if (window->KeyPress(VK_RETURN))
     {
-        GravityGuy::audio->Stop(MENU);
-        GravityGuy::NextLevel<Level1>();
+        DimensionFighter::audio->Stop(MENU);
+        DimensionFighter::NextLevel<Level1>();
     }
     else
     {

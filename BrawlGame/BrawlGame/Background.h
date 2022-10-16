@@ -9,8 +9,8 @@
 //
 **********************************************************************************/
 
-#ifndef _GRAVITYGUY_BACKGROUND_H_
-#define _GRAVITYGUY_BACKGROUND_H_
+#ifndef _DIMENSIONFIGHTER_BACKGROUND_H_
+#define _DIMENSIONFIGHTER_BACKGROUND_H_
 
 // ---------------------------------------------------------------------------------
 

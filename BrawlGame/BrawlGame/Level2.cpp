@@ -9,7 +9,7 @@
 //
 **********************************************************************************/
 
-#include "GravityGuy.h"
+#include "DimensionFighter.h"
 #include "Home.h"
 #include "Level2.h"
 #include "GameOver.h"
@@ -73,27 +73,27 @@ void Level2::Init()
     
 
     // adiciona jogador na cena
-    //scene->Add(GravityGuy::player, MOVING);
+    //scene->Add(DimensionFighter::player, MOVING);
 
-    //GravityGuy::audio->Frequency(MUSIC, 1.00f);
-    //GravityGuy::audio->Frequency(TRANSITION, 0.85f);
+    //DimensionFighter::audio->Frequency(MUSIC, 1.00f);
+    //DimensionFighter::audio->Frequency(TRANSITION, 0.85f);
 }
 
 // ------------------------------------------------------------------------------
 
 void Level2::Update()
 {
-    if (window->KeyPress(VK_ESCAPE) || GravityGuy::player->Level() == 2 || window->KeyPress('N'))
+    if (window->KeyPress(VK_ESCAPE) || DimensionFighter::player->Level() == 2 || window->KeyPress('N'))
     {
-        GravityGuy::audio->Stop(MUSIC);
-        GravityGuy::NextLevel<Home>();
-        GravityGuy::player->Reset();
+        DimensionFighter::audio->Stop(MUSIC);
+        DimensionFighter::NextLevel<Home>();
+        DimensionFighter::player->Reset();
     }
-    else if (GravityGuy::player->Bottom() < 0 || GravityGuy::player->Top() > window->Height())
+    else if (DimensionFighter::player->Bottom() < 0 || DimensionFighter::player->Top() > window->Height())
     {
-        GravityGuy::audio->Stop(MUSIC);
-        GravityGuy::NextLevel<GameOver>();
-        GravityGuy::player->Reset();
+        DimensionFighter::audio->Stop(MUSIC);
+        DimensionFighter::NextLevel<GameOver>();
+        DimensionFighter::player->Reset();
     }
     else
     {
@@ -109,7 +109,7 @@ void Level2::Draw()
     backg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     scene->Draw();
 
-    if (GravityGuy::viewBBox)
+    if (DimensionFighter::viewBBox)
         scene->DrawBBox();
 }
 
@@ -117,7 +117,7 @@ void Level2::Draw()
 
 void Level2::Finalize()
 {
-    scene->Remove(GravityGuy::player, MOVING);
+    scene->Remove(DimensionFighter::player, MOVING);
     delete backg;
     delete scene;
 }

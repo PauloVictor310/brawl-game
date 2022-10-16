@@ -9,8 +9,8 @@
 //              
 **********************************************************************************/
 
-#ifndef _GRAVITYGUY_GAMEOVER_H_
-#define _GRAVITYGUY_GAMEOVER_H_
+#ifndef _DIMENSIONFIGHTER_GAMEOVER_H_
+#define _DIMENSIONFIGHTER_GAMEOVER_H_
 
 // ------------------------------------------------------------------------------
 

@@ -10,7 +10,7 @@
 **********************************************************************************/
 
 #include "Player.h"
-#include "GravityGuy.h"
+#include "DimensionFighter.h"
 #include "Platform.h"
 
 // ---------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ void Player::OnCollision(Object * obj)
         gravity = !gravity;
 
         // toca efeito sonoro
-        GravityGuy::audio->Play(TRANSITION);
+        DimensionFighter::audio->Play(TRANSITION);
 
         // tira player da plataforma para evitar 
         // detecção de colisão no quadro seguinte

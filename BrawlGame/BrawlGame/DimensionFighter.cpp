@@ -1,5 +1,5 @@
 /**********************************************************************************
-// GravityGuy (Código Fonte)
+// DimensionFighter (Código Fonte)
 // 
 // Criação:     05 Out 2011
 // Atualização: 27 Set 2021
@@ -10,21 +10,21 @@
 **********************************************************************************/
 
 #include "Engine.h"
-#include "GravityGuy.h"
+#include "DimensionFighter.h"
 #include "Home.h"
 #include "GameOver.h"
 
 // ------------------------------------------------------------------------------
 
 // inicializa membros estáticos da classe
-Game*   GravityGuy::level = nullptr;
-Player* GravityGuy::player = nullptr;
-Audio*  GravityGuy::audio = nullptr;
-bool    GravityGuy::viewBBox = false;
+Game*   DimensionFighter::level = nullptr;
+Player* DimensionFighter::player = nullptr;
+Audio*  DimensionFighter::audio = nullptr;
+bool    DimensionFighter::viewBBox = false;
 
 // ------------------------------------------------------------------------------
 
-void GravityGuy::Init() 
+void DimensionFighter::Init() 
 {
     // cria sistema de áudio
     audio = new Audio();
@@ -45,7 +45,7 @@ void GravityGuy::Init()
 
 // ------------------------------------------------------------------------------
 
-void GravityGuy::Update()
+void DimensionFighter::Update()
 {
     // habilita/desabilita visualização da bounding box
     if (window->KeyPress('B'))
@@ -57,7 +57,7 @@ void GravityGuy::Update()
 
 // ------------------------------------------------------------------------------
 
-void GravityGuy::Draw()
+void DimensionFighter::Draw()
 {
     // desenha nível
     level->Draw();
@@ -65,7 +65,7 @@ void GravityGuy::Draw()
 
 // ------------------------------------------------------------------------------
 
-void GravityGuy::Finalize()
+void DimensionFighter::Finalize()
 {
     level->Finalize();
 
@@ -87,13 +87,13 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->window->Mode(WINDOWED);
     engine->window->Size(1100, 600);
     engine->window->Color(30, 50, 80);
-    engine->window->Title("Gravity Guy");
+    engine->window->Title("Dimension Fighter");
     engine->window->Icon(IDI_ICON);
     engine->window->Cursor(IDC_CURSOR);
     //engine->graphics->VSync(true);
 
     // inicia o jogo
-    int status = engine->Start(new GravityGuy());
+    int status = engine->Start(new DimensionFighter());
 
     delete engine;
     return status;

@@ -1,5 +1,5 @@
 /**********************************************************************************
-// GravityGuy (Arquivo de Cabeçalho)
+// DimensionFighter (Arquivo de Cabeçalho)
 // 
 // Criação:     05 Out 2011
 // Atualização: 27 Set 2021
@@ -9,8 +9,8 @@
 //
 **********************************************************************************/
 
-#ifndef _GRAVITYGUY_H_
-#define _GRAVITYGUY_H_
+#ifndef _DIMENSIONFIGHTER_H_
+#define _DIMENSIONFIGHTER_H_
 
 // ---------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ enum Sounds {MENU, MUSIC, TRANSITION};
 
 // ------------------------------------------------------------------------------
 
-class GravityGuy : public Game
+class DimensionFighter : public Game
 {
 private:
     static Game * level;            // nível atual do jogo

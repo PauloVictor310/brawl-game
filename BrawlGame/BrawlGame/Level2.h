@@ -9,8 +9,8 @@
 //
 **********************************************************************************/
 
-#ifndef _GRAVITYGUY_LEVEL2_H_
-#define _GRAVITYGUY_LEVEL2_H_
+#ifndef _DIMENSIONFIGHTER_LEVEL2_H_
+#define _DIMENSIONFIGHTER_LEVEL2_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões

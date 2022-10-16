@@ -9,7 +9,7 @@
 //
 **********************************************************************************/
 
-#include "GravityGuy.h"
+#include "DimensionFighter.h"
 #include "Home.h"
 #include "Level1.h"
 #include "Level2.h"
@@ -40,7 +40,7 @@ void Level1::Init()
     scene->Add(backg, STATIC);
 
     // adiciona jogador na cena
-    scene->Add(GravityGuy::player, MOVING);
+    scene->Add(DimensionFighter::player, MOVING);
 
     // ----------------------
     // plataformas
@@ -79,9 +79,9 @@ void Level1::Init()
     // ----------------------
 
     // inicia com música
-    //GravityGuy::audio->Frequency(MUSIC, 0.94f);
-    //GravityGuy::audio->Frequency(TRANSITION, 1.0f);
-    //GravityGuy::audio->Play(MUSIC);
+    //DimensionFighter::audio->Frequency(MUSIC, 0.94f);
+    //DimensionFighter::audio->Frequency(TRANSITION, 1.0f);
+    //DimensionFighter::audio->Play(MUSIC);
 }
 
 // ------------------------------------------------------------------------------
@@ -90,19 +90,19 @@ void Level1::Update()
 {
     if (window->KeyPress(VK_ESCAPE))
     {
-        GravityGuy::audio->Stop(MUSIC);
-        GravityGuy::NextLevel<Home>();
-        GravityGuy::player->Reset();
+        DimensionFighter::audio->Stop(MUSIC);
+        DimensionFighter::NextLevel<Home>();
+        DimensionFighter::player->Reset();
     }
-    else if (GravityGuy::player->Bottom() < 0 || GravityGuy::player->Top() > window->Height())
+    else if (DimensionFighter::player->Bottom() < 0 || DimensionFighter::player->Top() > window->Height())
     {
-        GravityGuy::audio->Stop(MUSIC);
-        GravityGuy::NextLevel<GameOver>();
-        GravityGuy::player->Reset();
+        DimensionFighter::audio->Stop(MUSIC);
+        DimensionFighter::NextLevel<GameOver>();
+        DimensionFighter::player->Reset();
     }
-    else if (GravityGuy::player->Level() == 1 || window->KeyPress('N'))
+    else if (DimensionFighter::player->Level() == 1 || window->KeyPress('N'))
     {
-        GravityGuy::NextLevel<Level2>();
+        DimensionFighter::NextLevel<Level2>();
     }
     else
     {
@@ -118,7 +118,7 @@ void Level1::Draw()
     backg->Draw();
     scene->Draw();
 
-    if (GravityGuy::viewBBox)
+    if (DimensionFighter::viewBBox)
         scene->DrawBBox();
 }
 
@@ -126,7 +126,7 @@ void Level1::Draw()
 
 void Level1::Finalize()
 {
-    scene->Remove(GravityGuy::player, MOVING);
+    scene->Remove(DimensionFighter::player, MOVING);
     delete scene;
 }
 

@@ -11,7 +11,7 @@
 
 #include "Engine.h"
 #include "GameOver.h"
-#include "GravityGuy.h"
+#include "DimensionFighter.h"
 #include "Home.h"
 
 // ----------------------------------------------------------------------
@@ -26,7 +26,7 @@ void GameOver::Init()
 void GameOver::Update()
 {
     if (window->KeyPress(VK_ESCAPE) || window->KeyPress(VK_RETURN))
-        GravityGuy::NextLevel<Home>();
+        DimensionFighter::NextLevel<Home>();
 }
 
 // ----------------------------------------------------------------------

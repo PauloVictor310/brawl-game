@@ -9,8 +9,8 @@
 //
 **********************************************************************************/
 
-#ifndef _GRAVITYGUY_HOME_H_
-#define _GRAVITYGUY_HOME_H_
+#ifndef _DIMENSIONFIGHTER_HOME_H_
+#define _DIMENSIONFIGHTER_HOME_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões

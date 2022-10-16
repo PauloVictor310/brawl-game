@@ -9,8 +9,8 @@
 //
 **********************************************************************************/
 
-#ifndef _GRAVITYGUY_PLATFORM_H_
-#define _GRAVITYGUY_PLATFORM_H_
+#ifndef _DIMENSIONFIGHTER_PLATFORM_H_
+#define _DIMENSIONFIGHTER_PLATFORM_H_
 
 // ---------------------------------------------------------------------------------
 
