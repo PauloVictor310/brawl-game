@@ -85,7 +85,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura o motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(600, 300);
+    engine->window->Size(1100, 600);
     engine->window->Color(30, 50, 80);
     engine->window->Title("Gravity Guy");
     engine->window->Icon(IDI_ICON);
