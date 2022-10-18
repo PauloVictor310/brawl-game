@@ -88,7 +88,7 @@ void Level3::Init()
     scene->Add(plat10, STATIC);
 
     // adiciona jogador na cena
-    //scene->Add(DimensionFighter::player, MOVING);
+    scene->Add(DimensionFighter::player, MOVING);
 
     // ----------------------
 

@@ -21,7 +21,7 @@
 
 // ------------------------------------------------------------------------------
 
-enum Gravity {NORMAL,INVERTED};         // tipo da gravidade
+enum Gravity {NORMAL,INVERTED, STILL};         // tipo da gravidade
 
 // ---------------------------------------------------------------------------------
 
@@ -32,8 +32,11 @@ private:
     Animation * anim;                   // animação do personagem
     uint        gravity;                // gravidade atuando sobre o jogador
     int         level;                  // nível finalizado
+    float       speed;                  // velocidade do personagem
     
 public:
+    uint state;                         // estado atual do personagem
+
     Player();                           // construtor
     ~Player();                          // destrutor
 

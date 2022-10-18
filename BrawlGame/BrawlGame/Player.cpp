@@ -17,15 +17,17 @@
 
 Player::Player()
 {
-    tileset = new TileSet("Resources/GravityGuy.png", 32, 48, 5, 10);
+    tileset = new TileSet("Resources/new/definitive/narutinho/naruto_run.png", 72, 59, 6, 12);
     anim = new Animation(tileset, 0.120f, true);
 
     // sequências de animação do player
-    uint invert[4] = {6,7,8,9};
-    uint normal[4] = {1,2,3,4};
+    uint invert[6] = { 6, 7, 8, 9, 10, 11 };
+    uint normal[6] = { 0, 1, 2, 3, 4, 5 };
+    uint still[2] = { 0, 1 };
 
-    anim->Add(INVERTED, invert, 4);
-    anim->Add(NORMAL, normal, 4);
+    anim->Add(INVERTED, invert, 6);
+    anim->Add(NORMAL, normal, 6);
+    anim->Add(STILL, still, 2);
 
     // cria bounding box
     BBox(new Rect(
@@ -37,6 +39,8 @@ Player::Player()
     // inicializa estado do player
     gravity = NORMAL;  
     level = 0;
+    state = STILL;
+    speed = 300.0f;
 
     // posição inicial
     MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
@@ -65,41 +69,7 @@ void Player::Reset()
 
 void Player::OnCollision(Object * obj)
 {
-    if (obj->Type() == FINISH)
-    {
-        // chegou ao final do nível
-        level++;
-    }
-    else
-    {
-        // mantém personagem em cima da plataforma
-        if (gravity == NORMAL)
-            MoveTo(window->CenterX(), obj->Y() - 32);
-        else
-            MoveTo(window->CenterX(), obj->Y() + 32);
-    }
-
-    // ----------------------------------------------------------
-    // Processa teclas pressionadas
-    // ----------------------------------------------------------
-    // jogador só pode alterar a gravidade enquanto estiver
-    // em cima de uma plataforma, não é possível a mudança no ar
-    // ----------------------------------------------------------
-
-    if (window->KeyPress(VK_SPACE))
-    {
-        gravity = !gravity;
-
-        // toca efeito sonoro
-        DimensionFighter::audio->Play(TRANSITION);
-
-        // tira player da plataforma para evitar 
-        // detecção de colisão no quadro seguinte
-        if (gravity == NORMAL)
-            Translate(0, 12);
-        else
-            Translate(0 , -12);
-    }
+    Translate(0, -2);
 }
 
 // ---------------------------------------------------------------------------------
@@ -112,8 +82,28 @@ void Player::Update()
     else
         Translate(0, -300 * gameTime);
 
+    // anda para esquerda
+    if (window->KeyDown(VK_LEFT))
+    {
+        state = INVERTED;
+        Translate(-speed * gameTime, 0);
+    }
+
+    // anda para direita
+    if (window->KeyDown(VK_RIGHT))
+    {
+        state = NORMAL;
+        Translate(speed * gameTime, 0);
+    }
+
+    // se todas as teclas estão liberadas, mude para o estado parado
+    if (window->KeyUp(VK_UP) && window->KeyUp(VK_DOWN) && window->KeyUp(VK_LEFT) && window->KeyUp(VK_RIGHT))
+    {
+        state = STILL;
+    }
+
     // atualiza animação
-    anim->Select(gravity);
+    anim->Select(state);
     anim->NextFrame();
 }
 
