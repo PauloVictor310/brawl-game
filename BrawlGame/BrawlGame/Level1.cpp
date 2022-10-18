@@ -36,8 +36,7 @@ void Level1::Init()
     scene = new Scene();
 
     // pano de fundo do jogo
-    backg = new Background(Color{ 1,1,1,1 });
-    scene->Add(backg, STATIC);
+    backg = new Sprite("Resources/new/level_1.png");
 
     // adiciona jogador na cena
     scene->Add(DimensionFighter::player, MOVING);
@@ -46,35 +45,35 @@ void Level1::Init()
     // plataformas
     // ----------------------
 
-    //Platform * plat;
-    float posX, posY;
-    uint  platType;
-    Color white { 1,1,1,1 };
+    //ok
+    platform_1 = new Platform(-550, -23, 549, 23);
+    platform_1->MoveTo(window->CenterX(), 565);
+    scene->Add(platform_1, STATIC);
 
-    ifstream fin;
-    fin.open("Level1.txt");
+    //ok
+    platform_2 = new Platform(-82, -19, 82, 19);
+    platform_2->MoveTo(355, 442);
+    scene->Add(platform_2, STATIC);
 
-    fin >> posX;
-    while (!fin.eof())
-    {
-        if (fin.good())
-        {
-            // lê linha com informações da plataforma
-            fin >> posY; fin >> platType;
-            //plat = new Platform(posX, posY, platType, white);
-            //scene->Add(plat, STATIC);
-        }
-        else
-        {
-            // ignora comentários
-            fin.clear();
-            char temp[80];
-            fin.getline(temp, 80);
-        }
+    platform_3 = new Platform(-82, -19, 82, 19);
+    platform_3->MoveTo(778, 438);
+    scene->Add(platform_3, STATIC);
 
-        fin >> posX;
-    }
-    fin.close();
+    //ok
+    platform_4 = new Platform(-82, -19, 82, 19);
+    platform_4->MoveTo(145, 350);
+    scene->Add(platform_4, STATIC);
+
+    platform_5 = new Platform(-82, -19, 82, 19);
+    platform_5->MoveTo(562, 336);
+    scene->Add(platform_5, STATIC);
+
+    //ok
+    platform_6 = new Platform(-82, -19, 82, 19);
+    platform_6->MoveTo(980, 350);
+    scene->Add(platform_6, STATIC);
+
+    
 
     // ----------------------
 
@@ -115,7 +114,7 @@ void Level1::Update()
 
 void Level1::Draw()
 {
-    backg->Draw();
+    backg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     scene->Draw();
 
     if (DimensionFighter::viewBBox)
