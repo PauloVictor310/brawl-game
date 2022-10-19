@@ -15,13 +15,13 @@
 // ---------------------------------------------------------------------------------
 // Inclusões
 
-#include "Types.h"                      // tipos específicos da engine
+#include "Types.h"                      // tipos especúƒicos da engine
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
 
 // ------------------------------------------------------------------------------
 
-enum Gravity {NORMAL,INVERTED, STILL};         // tipo da gravidade
+enum Gravity {NORMAL,INVERTED, STILL, JUMP};         // tipo da gravidade
 
 // ---------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ private:
     TileSet   * tileset;                // folha de sprites do personagem
     Animation * anim;                   // animação do personagem
     uint        gravity;                // gravidade atuando sobre o jogador
-    int         level;                  // nível finalizado
+    int         level;                  // nú“el finalizado
     float       speed;                  // velocidade do personagem
     
 public:
@@ -41,7 +41,7 @@ public:
     ~Player();                          // destrutor
 
     void Reset();                       // volta ao estado inicial
-    int Level();                        // último nível finalizado
+    int Level();                        // último nú“el finalizado
     float Bottom();                     // coordenadas da base
     float Top();                        // coordenadas do topo
 

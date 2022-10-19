@@ -21,8 +21,8 @@
 class Timer
 {
 private:
-    LARGE_INTEGER start, end;   // valores de inÌcio e fim do contador
-    LARGE_INTEGER freq;         // freq¸Íncia do contador
+    LARGE_INTEGER start, end;   // valores de in˙Äio e fim do contador
+    LARGE_INTEGER freq;         // freqÅEncia do contador
     bool stoped;                // estado da contagem
     
 public:

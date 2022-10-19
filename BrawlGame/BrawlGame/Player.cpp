@@ -17,24 +17,26 @@
 
 Player::Player()
 {
-    tileset = new TileSet("Resources/new/definitive/narutinho/naruto_run.png", 72, 59, 6, 12);
+    tileset = new TileSet("Resources/narutinho.png", 195, 101, 6, 126);
     anim = new Animation(tileset, 0.120f, true);
 
     // sequências de animação do player
-    uint invert[6] = { 6, 7, 8, 9, 10, 11 };
-    uint normal[6] = { 0, 1, 2, 3, 4, 5 };
-    uint still[2] = { 0, 1 };
+    uint normal[6] = { 78, 79, 80, 81, 82, 83};
+    uint invert[6] = { 84, 85, 86, 87, 88, 89};
+    uint still[30] = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14,15,16,18,19,20,21,22, 24, 25, 26, 27, 28};
+    uint jump[30] = { 55, 56, 57,58, 59, 61, 62, 63, 64, 65};
 
     anim->Add(INVERTED, invert, 6);
     anim->Add(NORMAL, normal, 6);
-    anim->Add(STILL, still, 2);
+    anim->Add(STILL, still, 30);
+    anim->Add(JUMP, jump, 30);
 
     // cria bounding box
     BBox(new Rect(
-        -1.0f * tileset->TileWidth() / 2.0f,
-        -1.0f * tileset->TileHeight() / 2.0f,
-        tileset->TileWidth() / 2.0f,
-        tileset->TileHeight() / 2.0f));
+        -1.0f * tileset->TileWidth() / 3.0f,
+        -1.0f * tileset->TileHeight() / 6.0f,
+        tileset->TileWidth() / 14.0f,
+        tileset->TileHeight() / 2.2f));
     
     // inicializa estado do player
     gravity = NORMAL;  
@@ -42,8 +44,7 @@ Player::Player()
     state = STILL;
     speed = 300.0f;
 
-    // posição inicial
-    MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
+    
 }
 
 // ---------------------------------------------------------------------------------
@@ -80,7 +81,7 @@ void Player::Update()
     if (gravity == NORMAL)    
         Translate(0, 300 * gameTime);
     else
-        Translate(0, -300 * gameTime);
+        Translate(0, -30);
 
     // anda para esquerda
     if (window->KeyDown(VK_LEFT))
@@ -97,7 +98,7 @@ void Player::Update()
     }
 
     // se todas as teclas estão liberadas, mude para o estado parado
-    if (window->KeyUp(VK_UP) && window->KeyUp(VK_DOWN) && window->KeyUp(VK_LEFT) && window->KeyUp(VK_RIGHT))
+    if (window->KeyUp(VK_UP) && window->KeyUp(VK_DOWN) && window->KeyUp(VK_LEFT) && window->KeyUp(VK_RIGHT) && window->KeyUp(VK_SPACE))
     {
         state = STILL;
     }

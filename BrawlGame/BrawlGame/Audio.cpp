@@ -22,7 +22,7 @@ Audio::Audio()
     // cria uma instância da engine XAudio2
     if (SUCCEEDED(XAudio2Create(&audioEngine, 0, XAUDIO2_DEFAULT_PROCESSOR)))
     {
-        // cria o dispositivo principal de saída de audio
+        // cria o dispositivo principal de saúa de audio
         audioEngine->CreateMasteringVoice(&masterVoice);
     }
 }
@@ -104,7 +104,7 @@ void Audio::Stop(uint id)
 
 void Audio::Volume(uint id, float level)
 {
-    // verifica se o nível está dentro dos limites
+    // verifica se o nú“el estEdentro dos limites
     if (level < 0)
         level = 0;
 
@@ -123,7 +123,7 @@ void Audio::Volume(uint id, float level)
 
 void Audio::Frequency(uint id, float level)
 {
-    // verifica se o nível está dentro dos limites
+    // verifica se o nú“el estEdentro dos limites
     if (level < XAUDIO2_MIN_FREQ_RATIO)
         level = XAUDIO2_MIN_FREQ_RATIO;
 

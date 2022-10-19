@@ -5,7 +5,7 @@
 // Atualização: 16 Out 2022
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 3 do jogo
+// Descrição:   Nú“el 3 do jogo
 //
 **********************************************************************************/
 
@@ -19,6 +19,7 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Background.h"
+#include "Audio.h"
 
 // ------------------------------------------------------------------------------
 
@@ -28,12 +29,13 @@ private:
     Sprite* backg = nullptr;        // background
 
 public:
-    static Scene* scene;            // cena do nível
+    static Scene* scene;            // cena do nú“el
+    static Audio* audio;
 
-    void Init();                    // inicialização do nível
+    void Init();                    // inicialização do nú“el
     void Update();                  // atualiza lógica do jogo
     void Draw();                    // desenha jogo
-    void Finalize();                // finalização do nível
+    void Finalize();                // finalização do nú“el
 };
 
 // -----------------------------------------------------------------------------

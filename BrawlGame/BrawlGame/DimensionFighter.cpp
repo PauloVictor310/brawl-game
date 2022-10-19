@@ -19,6 +19,7 @@
 // inicializa membros estáticos da classe
 Game*   DimensionFighter::level = nullptr;
 Player* DimensionFighter::player = nullptr;
+Player2* DimensionFighter::player2 = nullptr;
 Audio*  DimensionFighter::audio = nullptr;
 bool    DimensionFighter::viewBBox = false;
 
@@ -32,13 +33,15 @@ void DimensionFighter::Init()
     audio->Add(MUSIC, "Resources/Music.wav");
     audio->Add(TRANSITION, "Resources/Transition.wav");
 
-    // bounding box não visível
+    // bounding box não visú“el
     viewBBox = false;
 
     // cria jogador
     player = new Player();
+    // cria jogador
+    player2 = new Player2();
 
-    // inicializa nível de abertura do jogo
+    // inicializa nú“el de abertura do jogo
     level = new Home();
     level->Init();
 }
@@ -51,7 +54,7 @@ void DimensionFighter::Update()
     if (window->KeyPress('B'))
         viewBBox = !viewBBox;    
 
-    // atualiza nível
+    // atualiza nú“el
     level->Update();
 } 
 
@@ -59,7 +62,7 @@ void DimensionFighter::Update()
 
 void DimensionFighter::Draw()
 {
-    // desenha nível
+    // desenha nú“el
     level->Draw();
 } 
 

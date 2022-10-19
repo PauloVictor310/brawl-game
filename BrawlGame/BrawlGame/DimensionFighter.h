@@ -17,6 +17,7 @@
 #include "Game.h"
 #include "Audio.h"
 #include "Player.h"
+#include "Player2.h"
 #include "Resources.h"
 
 // ------------------------------------------------------------------------------
@@ -28,10 +29,11 @@ enum Sounds {MENU, MUSIC, TRANSITION};
 class DimensionFighter : public Game
 {
 private:
-    static Game * level;            // nível atual do jogo
+    static Game * level;            // nú“el atual do jogo
 
 public:
     static Player * player;         // jogador 
+    static Player2* player2;         // jogador 
     static Audio * audio;           // sistema de áudio
     static bool viewBBox;           // estado da bounding box
 
@@ -41,7 +43,7 @@ public:
     void Finalize();                // finaliza jogo
 
     template<class T>
-    static void NextLevel()         // muda para próximo nível do jogo
+    static void NextLevel()         // muda para próximo nú“el do jogo
     {
         if (level)
         {

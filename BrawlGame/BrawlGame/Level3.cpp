@@ -5,7 +5,7 @@
 // Atualização: 16 Out 2022
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 3 do jogo
+// Descrição:   Nú“el 3 do jogo
 //
 **********************************************************************************/
 
@@ -16,6 +16,7 @@
 #include "Player.h"
 #include "Platform.h"
 #include "Background.h"
+#include "Audio.h"
 
 #include <string>
 #include <fstream>
@@ -26,6 +27,7 @@ using std::string;
 // Inicializa membros estáticos da classe
 
 Scene* Level3::scene = nullptr;
+Audio* Level3::audio = nullptr;
 
 // ------------------------------------------------------------------------------
 
@@ -36,6 +38,9 @@ void Level3::Init()
 
     // pano de fundo do jogo
     backg = new Sprite("Resources/new/level_3.png");
+
+    audio = new Audio();
+    audio->Add(MUSIC, "Resources/level_3.wav");
 
     Platform* plat1;
     plat1 = new Platform(0, 0, 82, 33);
@@ -88,12 +93,20 @@ void Level3::Init()
     scene->Add(plat10, STATIC);
 
     // adiciona jogador na cena
+    scene->Add(DimensionFighter::player2, MOVING);
+
+    // adiciona jogador na cena
     scene->Add(DimensionFighter::player, MOVING);
+    // posição inicial
+    DimensionFighter::player2->MoveTo(window->CenterX() + 80, 24.0f, Layer::FRONT);
+    // posição inicial
+    DimensionFighter::player->MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
 
     // ----------------------
 
     //DimensionFighter::audio->Frequency(MUSIC, 1.00f);
     //DimensionFighter::audio->Frequency(TRANSITION, 0.85f);
+    audio->Play(MUSIC);
 }
 
 // ------------------------------------------------------------------------------
@@ -109,7 +122,7 @@ void Level3::Update()
     else if (DimensionFighter::player->Bottom() < 0 || DimensionFighter::player->Top() > window->Height())
     {
         DimensionFighter::audio->Stop(MUSIC);
-        DimensionFighter::NextLevel<GameOver>();
+        DimensionFighter::NextLevel<Home>();
         DimensionFighter::player->Reset();
     }
     else
@@ -135,8 +148,10 @@ void Level3::Draw()
 void Level3::Finalize()
 {
     scene->Remove(DimensionFighter::player, MOVING);
+    scene->Remove(DimensionFighter::player2, MOVING);
     delete scene;
     delete backg;
+    delete audio;
 }
 
 // ------------------------------------------------------------------------------

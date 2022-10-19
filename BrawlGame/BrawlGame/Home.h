@@ -19,6 +19,7 @@
 #include "Sprite.h"
 #include "TileSet.h"
 #include "Animation.h"
+#include "Audio.h"
 
 // ------------------------------------------------------------------------------
 
@@ -28,12 +29,13 @@ private:
     Sprite * backg = nullptr;       // pano de fundo
     //TileSet * tileset = nullptr;    // tileset da animação
     //Animation * anim = nullptr;     // animação do menu
+    static Audio* audio;
 
 public:
-    void Init();                    // inicia nível
+    void Init();                    // inicia nú“el
     void Update();                  // atualiza lógica do jogo
     void Draw();                    // desenha jogo
-    void Finalize();                // finaliza nível
+    void Finalize();                // finaliza nú“el
 };
 
 // -----------------------------------------------------------------------------

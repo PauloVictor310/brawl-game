@@ -15,6 +15,7 @@
 #include "Level1.h"
 
 // ------------------------------------------------------------------------------
+Audio* Home::audio = nullptr;
 
 void Home::Init()
 {
@@ -22,6 +23,9 @@ void Home::Init()
     //tileset = new TileSet("Resources/PressEnter.png", 72, 48, 1, 5);
     //anim = new Animation(tileset, 0.180f, true);
     //DimensionFighter::audio->Play(MENU, true);
+    audio = new Audio();
+    audio->Add(MUSIC, "Resources/home.wav");
+    audio->Play(MUSIC);
 }
 
 // ------------------------------------------------------------------------------
@@ -59,6 +63,7 @@ void Home::Finalize()
     //delete anim;
     //delete tileset;
     delete backg;
+    delete audio;
 }
 
 // ------------------------------------------------------------------------------

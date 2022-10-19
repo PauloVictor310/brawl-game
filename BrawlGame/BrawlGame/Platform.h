@@ -14,7 +14,7 @@
 
 // ---------------------------------------------------------------------------------
 
-#include "Types.h"                                      // tipos específicos da engine
+#include "Types.h"                                      // tipos especúƒicos da engine
 #include "Object.h"                                     // interface de Object
 #include "Sprite.h"                                     // desenho de sprites
 

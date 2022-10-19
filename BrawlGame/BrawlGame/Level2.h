@@ -5,7 +5,7 @@
 // Atualização: 27 Set 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 2 do jogo
+// Descrição:   Nú“el 2 do jogo
 //
 **********************************************************************************/
 
@@ -20,6 +20,7 @@
 #include "Player.h"
 #include "Background.h"
 #include "Platform.h"
+#include "Audio.h"
 
 // ------------------------------------------------------------------------------
 
@@ -37,12 +38,13 @@ private:
     Platform* platform_8 = nullptr;
 
 public:
-    static Scene* scene;           // cena do nível
+    static Scene* scene;           // cena do nú“el
+    static Audio* audio;
 
-    void Init();                    // inicialização do nível
+    void Init();                    // inicialização do nú“el
     void Update();                  // atualiza lógica do jogo
     void Draw();                    // desenha jogo
-    void Finalize();                // finalização do nível
+    void Finalize();                // finalização do nú“el
 };
 
 // -----------------------------------------------------------------------------

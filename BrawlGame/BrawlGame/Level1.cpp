@@ -5,7 +5,7 @@
 // Atualização: 27 Set 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Nível 1 do jogo
+// Descrição:   Nú“el 1 do jogo
 //
 **********************************************************************************/
 
@@ -15,6 +15,7 @@
 #include "Level2.h"
 #include "GameOver.h"
 #include "Player.h"
+#include "Player2.h"
 #include "Platform.h"
 #include "Background.h"
 
@@ -27,6 +28,7 @@ using std::string;
 // Inicializa membros estáticos da classe
 
 Scene * Level1::scene = nullptr;
+Audio* Level1::audio = nullptr;
 
 // ------------------------------------------------------------------------------
 
@@ -35,12 +37,21 @@ void Level1::Init()
     // cria gerenciador de cena
     scene = new Scene();
 
+    audio = new Audio();
+    audio->Add(MUSIC, "Resources/level_1.wav");
+
     // pano de fundo do jogo
     backg = new Sprite("Resources/new/level_1.png");
 
     // adiciona jogador na cena
-    scene->Add(DimensionFighter::player, MOVING);
+    scene->Add(DimensionFighter::player2, MOVING);
 
+    // adiciona jogador na cena
+    scene->Add(DimensionFighter::player, MOVING);
+    // posição inicial
+    DimensionFighter::player2->MoveTo(window->CenterX() + 80, 24.0f, Layer::FRONT);
+    // posição inicial
+    DimensionFighter::player->MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
     // ----------------------
     // plataformas
     // ----------------------
@@ -73,20 +84,22 @@ void Level1::Init()
     platform_6->MoveTo(980, 350);
     scene->Add(platform_6, STATIC);
 
-    
-
     // ----------------------
 
     // inicia com música
     //DimensionFighter::audio->Frequency(MUSIC, 0.94f);
     //DimensionFighter::audio->Frequency(TRANSITION, 1.0f);
     //DimensionFighter::audio->Play(MUSIC);
+    audio->Play(MUSIC);
 }
 
 // ------------------------------------------------------------------------------
 
 void Level1::Update()
 {
+    if (window->KeyPress(VK_SPACE)) {
+        DimensionFighter::player->Translate(0, -100);
+    }
     if (window->KeyPress(VK_ESCAPE))
     {
         DimensionFighter::audio->Stop(MUSIC);
@@ -96,7 +109,7 @@ void Level1::Update()
     else if (DimensionFighter::player->Bottom() < 0 || DimensionFighter::player->Top() > window->Height())
     {
         DimensionFighter::audio->Stop(MUSIC);
-        DimensionFighter::NextLevel<GameOver>();
+        DimensionFighter::NextLevel<Home>();
         DimensionFighter::player->Reset();
     }
     else if (DimensionFighter::player->Level() == 1 || window->KeyPress('N'))
@@ -126,7 +139,9 @@ void Level1::Draw()
 void Level1::Finalize()
 {
     scene->Remove(DimensionFighter::player, MOVING);
+    scene->Remove(DimensionFighter::player2, MOVING);
     delete scene;
+    delete audio;
 }
 
 // ------------------------------------------------------------------------------
