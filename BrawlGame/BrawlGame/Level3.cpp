@@ -42,55 +42,46 @@ void Level3::Init()
     audio = new Audio();
     audio->Add(MUSIC, "Resources/level_3.wav");
 
-    Platform* plat1;
-    plat1 = new Platform(0, 0, 82, 33);
-    plat1->MoveTo(140.0f, 128.0f);
-    scene->Add(plat1, STATIC);
+    // cria e adiciona bbox das plataformas
+    platform_1 = new Platform(-41, -17, 41, 17);
+    platform_1->MoveTo(182, 145);
+    scene->Add(platform_1, STATIC);
 
-    Platform* plat2;
-    plat2 = new Platform(0, 0, 124, 38);
-    plat2->MoveTo(240.0f, 230.0f);
-    scene->Add(plat2, STATIC);
-    
-    Platform* plat3;
-    plat3 = new Platform(0, 0, 124, 38);
-    plat3->MoveTo(31.0f, 281.0f);
-    scene->Add(plat3, STATIC);
+    platform_2 = new Platform(-62, -21, 62, 21);
+    platform_2->MoveTo(302, 250);
+    scene->Add(platform_2, STATIC);
 
-    Platform* plat4;
-    plat4 = new Platform(0, 0, 124, 38);
-    plat4->MoveTo(188.0f, 372.0f);
-    scene->Add(plat4, STATIC);
+    platform_3 = new Platform(-62, -21, 62, 21);
+    platform_3->MoveTo(93, 302);
+    scene->Add(platform_3, STATIC);
 
-    Platform* plat5;
-    plat5 = new Platform(0, 0, 176, 38);
-    plat5->MoveTo(457.0f, 164.0f);
-    scene->Add(plat5, STATIC);
+    platform_4 = new Platform(-62, -21, 62, 21);
+    platform_4->MoveTo(250, 393);
+    scene->Add(platform_4, STATIC);
 
-    Platform* plat6;
-    plat6 = new Platform(0, 0, 268, 30);
-    plat6->MoveTo(404.0f, 430.0f);
-    scene->Add(plat6, STATIC);
+    platform_5 = new Platform(-88, -21, 88, 21);
+    platform_5->MoveTo(545, 186);
+    scene->Add(platform_5, STATIC);
 
-    Platform* plat7;
-    plat7 = new Platform(0, 0, 82, 33);
-    plat7->MoveTo(863.0f, 118.0f);
-    scene->Add(plat7, STATIC);
+    platform_6 = new Platform(-135, -21, 135, 21);
+    platform_6->MoveTo(538, 452);
+    scene->Add(platform_6, STATIC);
 
-    Platform* plat8;
-    plat8 = new Platform(0, 0, 124, 38);
-    plat8->MoveTo(706.0f, 230.0f);
-    scene->Add(plat8, STATIC);
+    platform_7 = new Platform(-41, -17, 41, 17);
+    platform_7->MoveTo(905, 135);
+    scene->Add(platform_7, STATIC);
 
-    Platform* plat9;
-    plat9 = new Platform(0, 0, 124, 38);
-    plat9->MoveTo(925.0f, 267.0f);
-    scene->Add(plat9, STATIC);
+    platform_8 = new Platform(-62, -21, 62, 21);
+    platform_8->MoveTo(768, 250);
+    scene->Add(platform_8, STATIC);
 
-    Platform* plat10;
-    plat10 = new Platform(0, 0, 124, 38);
-    plat10->MoveTo(760.0f, 372.0f);
-    scene->Add(plat10, STATIC);
+    platform_9 = new Platform(-62, -21, 62, 21);
+    platform_9->MoveTo(987, 288);
+    scene->Add(platform_9, STATIC);
+
+    platform_10 = new Platform(-62, -21, 62, 21);
+    platform_10->MoveTo(822, 393);
+    scene->Add(platform_10, STATIC);
 
     // adiciona jogador na cena
     scene->Add(DimensionFighter::player2, MOVING);
