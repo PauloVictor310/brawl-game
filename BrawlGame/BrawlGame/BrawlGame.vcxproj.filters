@@ -99,7 +99,7 @@
     <ClCompile Include="Platform.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Naruto.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Level2.cpp">
@@ -108,7 +108,7 @@
     <ClCompile Include="Level3.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Player2.cpp">
+    <ClCompile Include="Alex.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="PlayerInterface.cpp">
@@ -191,7 +191,7 @@
     <ClInclude Include="Platform.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Naruto.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Level2.h">
@@ -200,7 +200,7 @@
     <ClInclude Include="Level3.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Player2.h">
+    <ClInclude Include="Alex.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInterface.h">

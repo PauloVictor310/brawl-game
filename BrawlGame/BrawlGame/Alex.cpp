@@ -9,14 +9,14 @@
 //
 **********************************************************************************/
 
-#include "Player2.h"
 #include "DimensionFighter.h"
 #include "PlayerInterface.h"
 #include "Platform.h"
+#include "Alex.h"
 
 // ---------------------------------------------------------------------------------
 
-Player2::Player2()
+Alex::Alex()
 {
     tileset = new TileSet("Resources/new/definitive/alex/alexkidd.png", 64, 56, 8, 32);
     anim = new Animation(tileset, 0.120f, true);
@@ -48,7 +48,7 @@ Player2::Player2()
 
 // ---------------------------------------------------------------------------------
 
-Player2::~Player2()
+Alex::~Alex()
 {
     delete anim;
     delete tileset;
@@ -56,7 +56,7 @@ Player2::~Player2()
 
 // ---------------------------------------------------------------------------------
 
-void Player2::Reset()
+void Alex::Reset()
 {
     // volta ao estado inicial
     MoveTo(window->CenterX() + 300, 24.0f, Layer::FRONT);
@@ -64,7 +64,7 @@ void Player2::Reset()
     level = 0;
 }
 
-void Player2::Draw()
+void Alex::Draw()
 {
     anim->Draw(x, y, z);
 }
@@ -72,14 +72,14 @@ void Player2::Draw()
 
 // ---------------------------------------------------------------------------------
 
-void Player2::OnCollision(Object* obj)
+void Alex::OnCollision(Object* obj)
 {
     Translate(0, -2);
 }
 
 // ---------------------------------------------------------------------------------
 
-void Player2::Update()
+void Alex::Update()
 {
     // ação da gravidade sobre o personagem
     if (gravity == NORMAL)

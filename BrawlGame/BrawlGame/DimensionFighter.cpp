@@ -37,9 +37,9 @@ void DimensionFighter::Init()
     viewBBox = false;
 
     // cria jogador
-    player = new Player();
+    player = new Naruto();
     // cria jogador
-    player2 = new Player2();
+    player2 = new Alex();
 
     // inicializa nú“el de abertura do jogo
     level = new Home();

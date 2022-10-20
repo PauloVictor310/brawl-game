@@ -20,6 +20,8 @@
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
 
+enum Gravity { NORMAL, INVERTED, STILL, JUMP };
+
 // ------------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------------

@@ -13,7 +13,7 @@
 #include "Home.h"
 #include "Level3.h"
 #include "GameOver.h"
-#include "Player.h"
+#include "Naruto.h"
 #include "Platform.h"
 #include "Background.h"
 #include "Audio.h"

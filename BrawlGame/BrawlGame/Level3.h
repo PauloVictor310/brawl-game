@@ -17,7 +17,7 @@
 
 #include "Game.h"
 #include "Scene.h"
-#include "Player.h"
+#include "Naruto.h"
 #include "Background.h"
 #include "Audio.h"
 

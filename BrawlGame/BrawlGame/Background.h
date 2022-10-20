@@ -14,9 +14,9 @@
 
 // ---------------------------------------------------------------------------------
 
-#include "Types.h"                      // tipos especÌficos da engine
+#include "Types.h"                      // tipos espec˙Éicos da engine
 #include "Object.h"                     // interface de Object
-#include "Sprite.h"                     // background È composto por sprites
+#include "Sprite.h"                     // background ÅEcomposto por sprites
 
 // ---------------------------------------------------------------------------------
 

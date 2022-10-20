@@ -16,9 +16,9 @@
 
 #include "Game.h"
 #include "Audio.h"
-#include "Player.h"
+#include "Naruto.h"
 #include "PlayerInterface.h"
-#include "Player2.h"
+#include "Alex.h"
 #include "Resources.h"
 
 // ------------------------------------------------------------------------------

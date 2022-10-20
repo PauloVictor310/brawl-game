@@ -14,8 +14,8 @@
 #include "Level1.h"
 #include "Level2.h"
 #include "GameOver.h"
-#include "Player.h"
-#include "Player2.h"
+#include "Naruto.h"
+#include "Alex.h"
 #include "Platform.h"
 #include "Background.h"
 
