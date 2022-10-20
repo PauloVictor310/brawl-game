@@ -1,50 +1,40 @@
 /**********************************************************************************
-// Home (Código Fonte) 
-// 
+// Select Screen (Código Fonte)
+//
 // Criação:     14 Fev 2013
 // Atualização: 27 Set 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Tela de abertura do jogo
+// Descrição:   Tela de seleção de personagens do jogo
 //
 **********************************************************************************/
 
 #include "Engine.h"
 #include "DimensionFighter.h"
 #include "Home.h"
-#include "Level1.h"
 #include "SelectScreen.h"
+#include "Level1.h"
 
 // ------------------------------------------------------------------------------
 
-Audio* Home::audio = nullptr;
-
-// ------------------------------------------------------------------------------
-
-void Home::Init()
+void SelectScreen::Init()
 {
-    backg = new Sprite("Resources/new/init.png");
-    //tileset = new TileSet("Resources/PressEnter.png", 72, 48, 1, 5);
-    //anim = new Animation(tileset, 0.180f, true);
-    //DimensionFighter::audio->Play(MENU, true);
-    audio = new Audio();
-    audio->Add(MUSIC, "Resources/home.wav");
-    audio->Play(MUSIC);
+    backg = new Sprite("Resources/TitleScreen.png");
 }
 
 // ------------------------------------------------------------------------------
 
-void Home::Update()
+void SelectScreen::Update()
 {
     // sai com o pressionar do ESC
     if (window->KeyPress(VK_ESCAPE))
         window->Close();
-    
+
     // se a tecla ENTER for pressionada
     if (window->KeyPress(VK_RETURN))
     {
         DimensionFighter::audio->Stop(MENU);
-        DimensionFighter::NextLevel<SelectScreen>();
+        DimensionFighter::NextLevel<Level1>();
     }
     else
     {
@@ -54,19 +44,17 @@ void Home::Update()
 
 // ------------------------------------------------------------------------------
 
-void Home::Draw()
+void SelectScreen::Draw()
 {
     backg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
-    //anim->Draw(545, 275);
 }
 
 // ------------------------------------------------------------------------------
 
-void Home::Finalize()
+void SelectScreen::Finalize()
 {
-    //delete anim;
-    //delete tileset;
     delete backg;
+    delete Home::audio;
 }
 
 // ------------------------------------------------------------------------------

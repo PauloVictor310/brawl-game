@@ -1,16 +1,16 @@
 /**********************************************************************************
-// Home (Arquivo de Cabeçalho)
-// 
+// Select Screen (Arquivo de Cabeçalho)
+//
 // Criação:     14 Fev 2013
 // Atualização: 27 Set 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Tela de abertura do jogo
+// Descrição:   Tela de seleção de personagens do jogo
 //
 **********************************************************************************/
 
-#ifndef _DIMENSIONFIGHTER_HOME_H_
-#define _DIMENSIONFIGHTER_HOME_H_
+#ifndef _DIMENSIONFIGHTER_SELECTSCREEN_H_
+#define _DIMENSIONFIGHTER_SELECTSCREEN_H_
 
 // ------------------------------------------------------------------------------
 // Inclusões
@@ -23,16 +23,14 @@
 
 // ------------------------------------------------------------------------------
 
-class Home : public Game
+class SelectScreen : public Game
 {
 private:
-    Sprite * backg = nullptr;         // pano de fundo
+    Sprite* backg = nullptr;       // pano de fundo
     //TileSet * tileset = nullptr;    // tileset da animação
     //Animation * anim = nullptr;     // animação do menu
 
 public:
-    static Audio* audio;
-
     void Init();                    // inicia nú“el
     void Update();                  // atualiza lógica do jogo
     void Draw();                    // desenha jogo

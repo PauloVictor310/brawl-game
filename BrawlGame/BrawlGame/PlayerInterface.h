@@ -20,9 +20,10 @@
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
 
-enum Gravity { NORMAL, INVERTED, STILL, JUMP };
+// ---------------------------------------------------------------------------------
 
-// ------------------------------------------------------------------------------
+enum Gravity { NORMAL, INVERTED };                          // tipo da gravidade
+enum State { RIGHTRUN, LEFTRUN, STILL, JUMP, SPECIAL };     // estado do personagem
 
 // ---------------------------------------------------------------------------------
 
@@ -39,15 +40,15 @@ protected:
 public:
     uint state;                         // estado atual do personagem
 
-    PlayerInterface();                           // construtor
-    ~PlayerInterface();                          // destrutor
+    PlayerInterface();                  // construtor
+    ~PlayerInterface();                 // destrutor
 
     void Reset();                       // volta ao estado inicial
     int Level();                        // último nú“el finalizado
     float Bottom();                     // coordenadas da base
     float Top();                        // coordenadas do topo
 
-    void OnCollision(Object* obj);     // resolução da colisão
+    void OnCollision(Object* obj);      // resolução da colisão
     void Update();                      // atualização do objeto
     void Draw();                        // desenho do objeto
 };

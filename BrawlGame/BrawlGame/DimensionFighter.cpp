@@ -73,6 +73,7 @@ void DimensionFighter::Finalize()
     level->Finalize();
 
     delete player;
+    delete player2;
     delete audio;
     delete level;
 }

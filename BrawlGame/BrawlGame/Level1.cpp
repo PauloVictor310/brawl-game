@@ -98,9 +98,6 @@ void Level1::Init()
 
 void Level1::Update()
 {
-    if (window->KeyPress(VK_SPACE)) {
-        DimensionFighter::player->Translate(0, -100);
-    }
     if (window->KeyPress(VK_ESCAPE))
     {
         DimensionFighter::audio->Stop(MUSIC);
@@ -141,6 +138,7 @@ void Level1::Finalize()
 {
     scene->Remove(DimensionFighter::player, MOVING);
     scene->Remove(DimensionFighter::player2, MOVING);
+    delete backg;
     delete scene;
     delete audio;
 }

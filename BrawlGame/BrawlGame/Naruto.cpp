@@ -18,19 +18,21 @@
 
 Naruto::Naruto()
 {
-    tileset = new TileSet("Resources/narutinho.png", 195, 101, 6, 126);
+    tileset = new TileSet("Resources/narutinho.png", 194, 101, 6, 126);
     anim = new Animation(tileset, 0.120f, true);
 
-    // sequências de animação do Naruto
-    uint normal[6] = { 78, 79, 80, 81, 82, 83};
-    uint invert[6] = { 84, 85, 86, 87, 88, 89};
-    uint still[30] = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14,15,16,18,19,20,21,22, 24, 25, 26, 27, 28};
-    uint jump[30] = { 55, 56, 57,58, 59, 61, 62, 63, 64, 65};
+    // sequências de animação do player
+    uint rightrun[6] = { 78, 79, 80, 81, 82, 83 };
+    uint leftrun[6] = { 84, 85, 86, 87, 88, 89 };
+    uint special[30] = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14,15,16,18,19,20,21,22, 24, 25, 26, 27, 28 };
+    uint jump[5] = { 55, 56, 57, 58, 59 };
+    uint still[2] = { 90, 91 };
 
-    anim->Add(INVERTED, invert, 6);
-    anim->Add(NORMAL, normal, 6);
-    anim->Add(STILL, still, 30);
-    anim->Add(JUMP, jump, 30);
+    anim->Add(LEFTRUN, leftrun, 6);
+    anim->Add(RIGHTRUN, rightrun, 6);
+    anim->Add(SPECIAL, special, 30);
+    anim->Add(JUMP, jump, 5);
+    anim->Add(STILL, still, 2);
 
     // cria bounding box
     BBox(new Rect(
@@ -93,15 +95,27 @@ void Naruto::Update()
     // anda para esquerda
     if (window->KeyDown(VK_LEFT))
     {
-        state = INVERTED;
+        state = LEFTRUN;
         Translate(-speed * gameTime, 0);
     }
 
     // anda para direita
     if (window->KeyDown(VK_RIGHT))
     {
-        state = NORMAL;
+        state = RIGHTRUN;
         Translate(speed * gameTime, 0);
+    }
+
+    // pula
+    if (window->KeyPress(VK_UP))
+    {
+        state = JUMP;
+        Translate(speed * gameTime, -30);
+    }
+
+    if (window->KeyDown(VK_SPACE))
+    {
+        state = SPECIAL;
     }
 
     // se todas as teclas estão liberadas, mude para o estado parado
