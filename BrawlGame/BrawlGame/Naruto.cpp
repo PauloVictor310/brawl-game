@@ -76,7 +76,8 @@ void Naruto::Draw()
 
 void Naruto::OnCollision(Object * obj)
 {
-    Translate(0, -2);
+
+    MoveTo(this->X(), obj->Y() - tileset->TileHeight()+33.3);
 }
 
 // ---------------------------------------------------------------------------------

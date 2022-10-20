@@ -74,7 +74,7 @@ void Alex::Draw()
 
 void Alex::OnCollision(Object* obj)
 {
-    Translate(0, -2);
+    MoveTo(this->X(), obj->Y() - tileset->TileHeight()+10);
 }
 
 // ---------------------------------------------------------------------------------
