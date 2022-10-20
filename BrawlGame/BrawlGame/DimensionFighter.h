@@ -16,6 +16,7 @@
 
 #include "Game.h"
 #include "Audio.h"
+#include "Font.h"
 #include "Naruto.h"
 #include "PlayerInterface.h"
 #include "Alex.h"
@@ -24,6 +25,13 @@
 // ------------------------------------------------------------------------------
 
 enum Sounds {MENU, MUSIC, TRANSITION};
+
+enum DFObjects
+{
+    PLAYER,
+    ATTACK,
+    PLATFORM
+};
 
 // ------------------------------------------------------------------------------
 
@@ -36,6 +44,7 @@ public:
     static PlayerInterface * player;         // jogador 
     static PlayerInterface* player2;         // jogador 
     static Audio * audio;           // sistema de áudio
+    static Font* bit;           // sistema de áudio
     static bool viewBBox;           // estado da bounding box
 
     void Init();                    // inicializa jogo

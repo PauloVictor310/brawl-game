@@ -12,6 +12,7 @@
 #include "DimensionFighter.h"
 #include "PlayerInterface.h"
 #include "Platform.h"
+#include "Attack.h"
 #include "Alex.h"
 
 // ---------------------------------------------------------------------------------
@@ -42,7 +43,7 @@ Alex::Alex()
     level = 0;
     state = STILL;
     speed = 300.0f;
-
+    type = PLAYER;
     
 }
 
@@ -74,7 +75,16 @@ void Alex::Draw()
 
 void Alex::OnCollision(Object* obj)
 {
-    MoveTo(this->X(), obj->Y() - tileset->TileHeight()+10);
+    if (obj->Type() == ATTACK) {
+        Attack* attack = (Attack*)obj;
+        life -= attack->damage;
+    }
+    else if (obj->Type() == PLAYER) {
+
+    }
+    else {
+        MoveTo(this->X(), obj->Y() - tileset->TileHeight() + 10);
+    }
 }
 
 // ---------------------------------------------------------------------------------

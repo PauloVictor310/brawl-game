@@ -13,6 +13,7 @@
 #include "DimensionFighter.h"
 #include "Home.h"
 #include "GameOver.h"
+#include "Font.h"
 
 // ------------------------------------------------------------------------------
 
@@ -22,6 +23,7 @@ PlayerInterface* DimensionFighter::player = nullptr;
 PlayerInterface* DimensionFighter::player2 = nullptr;
 Audio*  DimensionFighter::audio = nullptr;
 bool    DimensionFighter::viewBBox = false;
+Font* DimensionFighter::bit = nullptr;
 
 // ------------------------------------------------------------------------------
 
@@ -32,6 +34,9 @@ void DimensionFighter::Init()
     audio->Add(MENU, "Resources/Menu.wav");
     audio->Add(MUSIC, "Resources/Music.wav");
     audio->Add(TRANSITION, "Resources/Transition.wav");
+
+    bit = new Font("Resources/bit.png");
+    bit->Spacing("Resources/bit.dat");
 
     // bounding box não visú“el
     viewBBox = false;

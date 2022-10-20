@@ -12,6 +12,7 @@
 #include "Naruto.h"
 #include "PlayerInterface.h"
 #include "DimensionFighter.h"
+#include "Attack.h"
 #include "Platform.h"
 
 // ---------------------------------------------------------------------------------
@@ -78,8 +79,17 @@ void Naruto::Draw()
 
 void Naruto::OnCollision(Object * obj)
 {
+    
+    if (obj->Type() == ATTACK) {
+        Attack* attack = (Attack*)obj;
+        life -= attack->damage;
+    }
+    else if (obj->Type() == PLAYER) {
 
-    MoveTo(this->X(), obj->Y() - tileset->TileHeight()+33.3);
+    }
+    else {
+        MoveTo(this->X(), obj->Y() - tileset->TileHeight() + 33.3);
+    }
 }
 
 // ---------------------------------------------------------------------------------

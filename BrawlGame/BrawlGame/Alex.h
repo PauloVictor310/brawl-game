@@ -27,8 +27,6 @@
 class Alex : public PlayerInterface
 {
 public:
-    uint state;                         // estado atual do personagem
-
     Alex();                           // construtor
     ~Alex();                          // destrutor
 

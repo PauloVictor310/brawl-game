@@ -29,7 +29,6 @@
 class Naruto : public PlayerInterface
 {
 public:
-    uint state;                         // estado atual do personagem
 
     Naruto();                           // construtor
     ~Naruto();                          // destrutor

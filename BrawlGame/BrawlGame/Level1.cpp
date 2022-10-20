@@ -11,10 +11,12 @@
 
 #include "DimensionFighter.h"
 #include "Home.h"
+#include "Font.h"
 #include "Level1.h"
 #include "Level2.h"
 #include "GameOver.h"
 #include "Naruto.h"
+#include "Attack.h"
 #include "Alex.h"
 #include "Platform.h"
 #include "Background.h"
@@ -31,7 +33,8 @@ Scene * Level1::scene = nullptr;
 Audio* Level1::audio = nullptr;
 
 // ------------------------------------------------------------------------------
-
+Color red(1.0f, 0.2f, 0.2f, 1.0f);
+Color blue(1.0f, 1.0f, 1.0f, 1.0f);
 void Level1::Init()
 {
     // cria gerenciador de cena
@@ -52,6 +55,9 @@ void Level1::Init()
     DimensionFighter::player->MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
     // posição inicial
     DimensionFighter::player2->MoveTo(window->CenterX() + 80, 24.0f, Layer::FRONT);
+
+    life1 = DimensionFighter::player->life;
+    life2 = DimensionFighter::player2->life;
     
     // ----------------------
     // plataformas
@@ -98,6 +104,14 @@ void Level1::Init()
 
 void Level1::Update()
 {
+    life1 = DimensionFighter::player->life;
+    life2 = DimensionFighter::player2->life;
+    if (DimensionFighter::player->state == SPECIAL) {
+        Attack* attack = new Attack(200, 300, 1);
+        attack->MoveTo(DimensionFighter::player->X() + 30, DimensionFighter::player->Y(), Layer::FRONT);
+        scene->Add(attack, STATIC);
+    }
+    
     if (window->KeyPress(VK_ESCAPE))
     {
         DimensionFighter::audio->Stop(MUSIC);
@@ -119,14 +133,20 @@ void Level1::Update()
         scene->Update();
         scene->CollisionDetection();
     }    
+   
 }
 
 // ------------------------------------------------------------------------------
 
 void Level1::Draw()
-{
+{   
+    
+
     backg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
     scene->Draw();
+
+    DimensionFighter::bit->Draw(180, 20, std::to_string(life1), red, Layer::FRONT, 0.6f);
+    DimensionFighter::bit->Draw(1080, 20, std::to_string(life2), blue, Layer::FRONT, 0.6f);
 
     if (DimensionFighter::viewBBox)
         scene->DrawBBox();

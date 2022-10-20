@@ -12,6 +12,7 @@
 #include "PlayerInterface.h"
 #include "DimensionFighter.h"
 #include "Platform.h"
+#include "Attack.h"
 
 // ---------------------------------------------------------------------------------
 
@@ -23,7 +24,8 @@ PlayerInterface::PlayerInterface()
     level = 0;
     state = STILL;
     speed = 300.0f;
-    life = 100;
+    life = 1000;
+    type = PLAYER;
 }
 
 // ---------------------------------------------------------------------------------

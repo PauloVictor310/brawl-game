@@ -5,7 +5,7 @@
 // Atualização: 25 Ago 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   A função da Engine é rodar jogos criados a partir da classe 
+// Descrição:   A função da Engine Erodar jogos criados a partir da classe 
 //              abstrata Game. Todo jogo deve ser uma classe derivada de Game 
 //              e portanto deve implementar as funções membro Init, Update, Draw 
 //              e Finalize, que serão chamadas pelo motor em um laço de tempo real. 
@@ -52,7 +52,7 @@ public:
     static void Resume();                // reinicia o jogo
 
     template<class T>
-    static void Next()                   // muda para próximo nível do jogo
+    static void Next()                   // muda para próximo nú“el do jogo
     {
         if (game)
         {

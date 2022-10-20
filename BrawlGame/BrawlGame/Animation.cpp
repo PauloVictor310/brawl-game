@@ -23,7 +23,7 @@ Animation::Animation(TileSet * tiles, float delay, bool repeat) :
     // sempre inicia a animação pelo primeiro quadro
     frame = iniFrame = 0;
 
-    // o último quadro é sempre um a menos que o número de quadros
+    // o último quadro Esempre um a menos que o número de quadros
     endFrame = tileSet->Size() - 1;
 
     // configura sprite
@@ -73,7 +73,7 @@ void Animation::Add(uint id, uint * seq, uint seqSize)
     // inicia animação pelo primeiro quadro da sequência
     iniFrame = frame = 0;
 
-    // o último quadro é sempre um a menos que o número de quadros
+    // o último quadro Esempre um a menos que o número de quadros
     endFrame = seqSize - 1;
 }
 
@@ -93,7 +93,7 @@ void Animation::Select(uint id)
         iniFrame = 0;
         endFrame = size - 1;
 
-        // se o frame atual está fora da sequência
+        // se o frame atual estEfora da sequência
         if (frame > endFrame)
             frame = 0;
     }

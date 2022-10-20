@@ -34,11 +34,11 @@ protected:
     Animation*  anim;                   // animação do personagem
     uint        gravity;                // gravidade atuando sobre o jogador
     int         level;                  // nú“el finalizado
-    int         life;
     float       speed;                  // velocidade do personagem
 
 public:
     uint state;                         // estado atual do personagem
+    int         life;
 
     PlayerInterface();                  // construtor
     ~PlayerInterface();                 // destrutor

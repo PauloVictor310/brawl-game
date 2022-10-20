@@ -44,6 +44,9 @@ public:
     static Scene* scene;           // cena do nú“el
     static Audio* audio;
 
+    int life1;
+    int life2;
+
     void Init();                    // inicialização do nú“el
     void Update();                  // atualiza lógica do jogo
     void Draw();                    // desenha jogo
