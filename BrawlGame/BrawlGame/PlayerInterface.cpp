@@ -24,8 +24,9 @@ PlayerInterface::PlayerInterface()
     level = 0;
     state = STILL;
     speed = 300.0f;
-    life = 1000;
+    life = 180000;
     type = PLAYER;
+    selected = P1;
 }
 
 // ---------------------------------------------------------------------------------

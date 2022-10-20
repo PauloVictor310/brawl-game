@@ -24,7 +24,7 @@ Naruto::Naruto()
 
     // sequências de animação do player
     uint rightrun[6] = { 78, 79, 80, 81, 82, 83 };
-    uint leftrun[6] = { 84, 85, 86, 87, 88, 89 };
+    uint leftrun[6] = { 89, 88, 87, 86, 85, 84 };
     uint special[30] = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 12, 13, 14,15,16,18,19,20,21,22, 24, 25, 26, 27, 28 };
     uint jump[5] = { 55, 56, 57, 58, 59 };
     uint still[2] = { 90, 91 };
@@ -88,7 +88,7 @@ void Naruto::OnCollision(Object * obj)
 
     }
     else {
-        MoveTo(this->X(), obj->Y() - tileset->TileHeight() + 33.3);
+        MoveTo(this->X(), obj->Y() - tileset->TileHeight() + 35);
     }
 }
 

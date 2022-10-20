@@ -24,6 +24,7 @@
 
 enum Gravity { NORMAL, INVERTED };                          // tipo da gravidade
 enum State { RIGHTRUN, LEFTRUN, STILL, JUMP, SPECIAL };     // estado do personagem
+enum PlayerSelected { P1, P2 };
 
 // ---------------------------------------------------------------------------------
 
@@ -38,7 +39,8 @@ protected:
 
 public:
     uint state;                         // estado atual do personagem
-    int         life;
+    uint selected;
+    int  life;
 
     PlayerInterface();                  // construtor
     ~PlayerInterface();                 // destrutor

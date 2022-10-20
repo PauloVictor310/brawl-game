@@ -124,7 +124,7 @@ void Level1::Update()
         DimensionFighter::NextLevel<Home>();
         DimensionFighter::player->Reset();
     }
-    else if (DimensionFighter::player->Level() == 1 || window->KeyPress('N'))
+    else if (DimensionFighter::player->life <= 0 || DimensionFighter::player2->life <= 0 || window->KeyPress('N'))
     {
         DimensionFighter::NextLevel<Level2>();
     }

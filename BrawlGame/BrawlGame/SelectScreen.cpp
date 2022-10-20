@@ -14,12 +14,20 @@
 #include "Home.h"
 #include "SelectScreen.h"
 #include "Level1.h"
+#include "Scene.h"
 
 // ------------------------------------------------------------------------------
 
+Scene* SelectScreen::scene = nullptr;
+
 void SelectScreen::Init()
 {
-    backg = new Sprite("Resources/TitleScreen.png");
+    scene = new Scene();
+    backg = new Sprite("Resources/choose/choose.png");
+
+    platform_1 = new Platform(-550, -23, 549, 23);
+    platform_1->MoveTo(window->CenterX(), 565);
+    scene->Add(platform_1, STATIC);
 }
 
 // ------------------------------------------------------------------------------
@@ -47,6 +55,8 @@ void SelectScreen::Update()
 void SelectScreen::Draw()
 {
     backg->Draw(window->CenterX(), window->CenterY(), Layer::BACK);
+    if (DimensionFighter::viewBBox)
+        scene->DrawBBox();
 }
 
 // ------------------------------------------------------------------------------
@@ -54,6 +64,7 @@ void SelectScreen::Draw()
 void SelectScreen::Finalize()
 {
     delete backg;
+    delete scene;
     delete Home::audio;
 }
 

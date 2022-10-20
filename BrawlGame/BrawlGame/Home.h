@@ -20,6 +20,8 @@
 #include "TileSet.h"
 #include "Animation.h"
 #include "Audio.h"
+#include "Platform.h"
+#include "Scene.h"
 
 // ------------------------------------------------------------------------------
 
@@ -27,11 +29,13 @@ class Home : public Game
 {
 private:
     Sprite * backg = nullptr;         // pano de fundo
+    Platform* platform_1 = nullptr;
     //TileSet * tileset = nullptr;    // tileset da animação
     //Animation * anim = nullptr;     // animação do menu
 
 public:
     static Audio* audio;
+    static Scene* scene;           // cena do nú“el
 
     void Init();                    // inicia nú“el
     void Update();                  // atualiza lógica do jogo
