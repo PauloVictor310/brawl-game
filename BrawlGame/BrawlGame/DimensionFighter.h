@@ -17,6 +17,7 @@
 #include "Game.h"
 #include "Audio.h"
 #include "Player.h"
+#include "PlayerInterface.h"
 #include "Player2.h"
 #include "Resources.h"
 
@@ -32,8 +33,8 @@ private:
     static Game * level;            // nú“el atual do jogo
 
 public:
-    static Player * player;         // jogador 
-    static Player2* player2;         // jogador 
+    static PlayerInterface * player;         // jogador 
+    static PlayerInterface* player2;         // jogador 
     static Audio * audio;           // sistema de áudio
     static bool viewBBox;           // estado da bounding box
 

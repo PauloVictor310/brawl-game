@@ -49,9 +49,10 @@ void Level1::Init()
     // adiciona jogador na cena
     scene->Add(DimensionFighter::player, MOVING);
     // posição inicial
-    DimensionFighter::player2->MoveTo(window->CenterX() + 80, 24.0f, Layer::FRONT);
-    // posição inicial
     DimensionFighter::player->MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
+    // posição inicial
+    DimensionFighter::player2->MoveTo(window->CenterX() + 80, 24.0f, Layer::FRONT);
+    
     // ----------------------
     // plataformas
     // ----------------------

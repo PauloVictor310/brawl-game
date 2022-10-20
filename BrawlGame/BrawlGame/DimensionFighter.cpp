@@ -18,8 +18,8 @@
 
 // inicializa membros estáticos da classe
 Game*   DimensionFighter::level = nullptr;
-Player* DimensionFighter::player = nullptr;
-Player2* DimensionFighter::player2 = nullptr;
+PlayerInterface* DimensionFighter::player = nullptr;
+PlayerInterface* DimensionFighter::player2 = nullptr;
 Audio*  DimensionFighter::audio = nullptr;
 bool    DimensionFighter::viewBBox = false;
 

@@ -11,6 +11,7 @@
 
 #include "Player2.h"
 #include "DimensionFighter.h"
+#include "PlayerInterface.h"
 #include "Platform.h"
 
 // ---------------------------------------------------------------------------------
@@ -58,9 +59,14 @@ Player2::~Player2()
 void Player2::Reset()
 {
     // volta ao estado inicial
-    MoveTo(window->CenterX() + 300, Layer::FRONT);
+    MoveTo(window->CenterX() + 300, 24.0f, Layer::FRONT);
     gravity = NORMAL;
     level = 0;
+}
+
+void Player2::Draw()
+{
+    anim->Draw(x, y, z);
 }
 
 
@@ -82,21 +88,21 @@ void Player2::Update()
         Translate(0, -30);
 
     // anda para esquerda
-    if (window->KeyPress('A'))
+    if (window->KeyDown('A'))
     {
         state = INVERTED;
-        Translate(-30 , 0);
+        Translate(-speed * gameTime, 0);
     }
 
     // anda para direita
-    if (window->KeyPress('D'))
+    if (window->KeyDown('D'))
     {
         state = NORMAL;
-        Translate(30 , 0);
+        Translate(speed * gameTime, 0);
     }
 
     // se todas as teclas estão liberadas, mude para o estado parado
-    if (window->KeyUp(VK_UP) && window->KeyUp(VK_DOWN) && window->KeyUp('A') && window->KeyUp('D'))
+    if (window->KeyUp('W') && window->KeyUp('S') && window->KeyUp('A') && window->KeyUp('D'))
     {
         state = STILL;
     }

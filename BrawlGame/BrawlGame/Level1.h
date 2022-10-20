@@ -21,6 +21,7 @@
 #include "Background.h"
 #include "Platform.h"
 #include "Audio.h"
+#include "PlayerInterface.h"
 
 // ------------------------------------------------------------------------------
 
@@ -35,6 +36,9 @@ private:
     Platform* platform_4 = nullptr;
     Platform* platform_5 = nullptr;
     Platform* platform_6 = nullptr;
+
+    PlayerInterface* player1 = nullptr;
+    PlayerInterface* player2 = nullptr;
 
 public:
     static Scene* scene;           // cena do nú“el

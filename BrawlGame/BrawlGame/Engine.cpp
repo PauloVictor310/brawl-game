@@ -5,7 +5,7 @@
 // Atualização: 30 Set 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   A função da Engine é rodar jogos criados a partir da classe
+// Descrição:   A função da Engine Erodar jogos criados a partir da classe
 //              abstrata Game. Todo jogo deve ser uma classe derivada de Game
 //              e portanto deve implementar as funções membro Init, Update, Draw
 //              e Finalize, que serão chamadas pelo motor em um laço de tempo real.
@@ -199,7 +199,7 @@ float Engine::FrameTime()
     {
         stringstream text;            // fluxo de texto para mensagens
         text << std::fixed;           // sempre mostra a parte fracionária
-        text.precision(3);            // três casas depois da vírgula
+        text.precision(3);            // três casas depois da vúgula
 
         text << window->Title().c_str() << "    "
             << "FPS: " << frameCount << "    "

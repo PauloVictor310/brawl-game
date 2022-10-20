@@ -19,20 +19,14 @@
 #include "Object.h"                     // interface de Object
 #include "Animation.h"                  // animação de sprites
 #include "Player.h"
+#include "PlayerInterface.h"
 
 // ------------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------------
 
-class Player2 : public Object
+class Player2 : public PlayerInterface
 {
-private:
-    TileSet* tileset;                // folha de sprites do personagem
-    Animation* anim;                   // animação do personagem
-    uint        gravity;                // gravidade atuando sobre o jogador
-    int         level;                  // nú“el finalizado
-    float       speed;                  // velocidade do personagem
-
 public:
     uint state;                         // estado atual do personagem
 
@@ -51,26 +45,6 @@ public:
 
 // ---------------------------------------------------------------------------------
 // Função Membro Inline
-
-inline int Player2::Level()
-{
-    return level;
-}
-
-inline float Player2::Bottom()
-{
-    return y + tileset->Height() / 2;
-}
-
-inline float Player2::Top()
-{
-    return y - tileset->Height() / 2;
-}
-
-inline void Player2::Draw()
-{
-    anim->Draw(x, y, z);
-}
 
 // ---------------------------------------------------------------------------------
 

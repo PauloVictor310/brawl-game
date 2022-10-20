@@ -10,6 +10,7 @@
 **********************************************************************************/
 
 #include "Player.h"
+#include "PlayerInterface.h"
 #include "DimensionFighter.h"
 #include "Platform.h"
 
@@ -63,6 +64,11 @@ void Player::Reset()
     MoveTo(window->CenterX(), 24.0f, Layer::FRONT);
     gravity = NORMAL;
     level = 0;
+}
+
+void Player::Draw()
+{
+    anim->Draw(x, y, z);
 }
 
 
